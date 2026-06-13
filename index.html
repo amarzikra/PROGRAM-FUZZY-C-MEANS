@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VulnoScanto - Ulkus Scanner & Tracker</title>
+    <meta name="description" content="Aplikasi pemantauan dan segmentasi luka diabetikum dengan algoritma Fuzzy C-Means untuk tenaga medis.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="container nav-content">
+            <div class="logo">
+                <div class="logo-icon"></div>
+                <span>VulnoScanto</span>
+            </div>
+            <nav class="nav-links">
+                <a href="#beranda">Beranda</a>
+                <a href="#fitur">Fitur Utama</a>
+                <a href="#tentang">Tentang</a>
+                <a href="#teknologi">Teknologi</a>
+            </nav>
+            <button class="btn btn-primary" onclick="window.location.href='#login'">Login Tenaga Medis</button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <span class="badge">Sistem Terintegrasi RSUD</span>
+                <h1>Ulkus Scanner & Tracker untuk Perawatan Luka Diabetikum</h1>
+                <p>Otomatisasi segmentasi area luka dan pengukuran objektif jaringan (Nekrotik, Slough, Granulasi) menggunakan algoritma cerdas Fuzzy C-Means untuk mendukung keputusan klinis yang lebih akurat.</p>
+                <div class="hero-actions">
+                    <button class="btn btn-primary btn-large">Mulai Pemeriksaan</button>
+                    <button class="btn btn-outline btn-large">Pelajari Lebih Lanjut</button>
+                </div>
+            </div>
+            <div class="hero-image-container">
+                <div class="glass-card mockup-card">
+                    <div class="mockup-header">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <div class="mockup-body">
+                        <div class="scanner-line"></div>
+                        <div class="mockup-placeholder">
+                            <span class="icon">📷</span>
+                            <p>Unggah Foto Luka & Referensi Kalibrasi</p>
+                        </div>
+                        <div class="mockup-stats">
+                            <div class="stat">
+                                <span class="stat-label">Nekrotik</span>
+                                <div class="progress-bar"><div class="progress" style="width: 25%; background: #1e293b;"></div></div>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Slough</span>
+                                <div class="progress-bar"><div class="progress" style="width: 40%; background: #eab308;"></div></div>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Granulasi</span>
+                                <div class="progress-bar"><div class="progress" style="width: 35%; background: #ef4444;"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="fitur" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Fitur Utama VulnoScanto</h2>
+                <p>Dirancang khusus untuk tenaga medis dengan tingkat akurasi tinggi (IoU ≥ 0.80).</p>
+            </div>
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                    </div>
+                    <h3>Unggah & Preprocessing</h3>
+                    <p>Crop interaktif, resizing standar, dan filtering citra (Median/Gaussian) untuk memperjelas batas area luka sebelum segmentasi.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"></rect><line x1="6" y1="12" x2="6" y2="12"></line><line x1="10" y1="12" x2="10" y2="12"></line><line x1="14" y1="12" x2="14" y2="12"></line><line x1="18" y1="12" x2="18" y2="12"></line></svg>
+                    </div>
+                    <h3>Kalibrasi Piksel ke Metrik</h3>
+                    <p>Hitung luas luka yang sebenarnya dalam satuan cm² melalui kalibrasi rasio dengan objek referensi pada foto secara interaktif.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+                    </div>
+                    <h3>Segmentasi Fuzzy C-Means</h3>
+                    <p>Pengelompokan otomatis ke dalam 4 klaster: jaringan nekrotik, slough, granulasi, dan kulit sehat dengan presisi tinggi.</p>
+                </div>
+                <!-- Feature 4 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                    </div>
+                    <h3>Rekam Medis & Riwayat</h3>
+                    <p>Simpan data pemeriksaan, pantau grafik penyembuhan komposisi luka dari waktu ke waktu secara digital dan terpusat.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Evaluation Section -->
+    <section id="teknologi" class="evaluation">
+        <div class="container eval-content">
+            <div class="eval-text">
+                <h2>Evaluasi Validasi Klinis</h2>
+                <p>VulnoScanto dilengkapi dengan modul evaluasi Ground Truth untuk memastikan setiap hasil segmentasi dapat diandalkan oleh tenaga medis di RSUD Kolonel Abundjani Bangko.</p>
+                <ul class="eval-list">
+                    <li>
+                        <strong>Perhitungan Intersection over Union (IoU)</strong>
+                        <span>Membandingkan hasil sistem dengan pengukuran manual.</span>
+                    </li>
+                    <li>
+                        <strong>Koreksi Label Manual</strong>
+                        <span>Panel interaktif untuk verifikasi jika terjadi misklasifikasi.</span>
+                    </li>
+                    <li>
+                        <strong>Target Akurasi Minimal</strong>
+                        <span>IoU ≥ 0.80 untuk setiap kelas jaringan biologis.</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="eval-visual">
+                <div class="chart-mockup glass-card">
+                    <h4>Progres Penyembuhan Pasien</h4>
+                    <div class="chart-bars">
+                        <div class="bar-group">
+                            <div class="bar bar-necrotic" style="height: 80%;"></div>
+                            <div class="bar bar-slough" style="height: 60%;"></div>
+                            <div class="bar bar-granulation" style="height: 30%;"></div>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar bar-necrotic" style="height: 50%;"></div>
+                            <div class="bar bar-slough" style="height: 70%;"></div>
+                            <div class="bar bar-granulation" style="height: 50%;"></div>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar bar-necrotic" style="height: 20%;"></div>
+                            <div class="bar bar-slough" style="height: 40%;"></div>
+                            <div class="bar bar-granulation" style="height: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="chart-labels">
+                        <span>Minggu 1</span>
+                        <span>Minggu 2</span>
+                        <span>Minggu 3</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <div class="logo">
+                    <div class="logo-icon"></div>
+                    <span>VulnoScanto</span>
+                </div>
+                <p>Sistem cerdas untuk pemantauan ulkus diabetikum yang presisi dan mudah digunakan. Mendukung keputusan medis berbasis data.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Akses Cepat</h4>
+                <a href="#beranda">Beranda</a>
+                <a href="#fitur">Fitur</a>
+                <a href="#login">Login Portal</a>
+            </div>
+            <div class="footer-contact">
+                <h4>Lokasi</h4>
+                <p>RSUD Kolonel Abundjani Bangko<br>Merangin, Jambi</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 VulnoScanto - Sistem Rekam Medis Ulkus Diabetikum. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
